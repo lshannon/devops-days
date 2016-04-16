@@ -1,6 +1,6 @@
-package io.pivotal.workshop.questrade;
+package io.pivotal.devops;
 
-import io.pivotal.workshop.questrade.CustomerServiceApplication;
+import io.pivotal.devops.CustomerServiceApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
-package io.pivotal.workshop.questrade.controller;
+package io.pivotal.devops.controller;
 
-import io.pivotal.workshop.questrade.model.Customer;
-import io.pivotal.workshop.questrade.repo.CustomerRepository;
+import io.pivotal.devops.model.Customer;
+import io.pivotal.devops.repo.CustomerRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

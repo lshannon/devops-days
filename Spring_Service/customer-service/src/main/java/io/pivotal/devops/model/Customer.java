@@ -1,4 +1,4 @@
-package io.pivotal.workshop.questrade.model;
+package io.pivotal.devops.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
