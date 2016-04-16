@@ -20,7 +20,7 @@ https://docs.cloudfoundry.org/cf-cli/install-go-cli.html
 
 ## Authentication
 
-Run the following to authenticate (NOTE: for this demo a on-premise version of PCF is used that requires Okta token authentication).
+Run the following to authenticate (NOTE: for this demo a on-premise version of PCF is used that requires Okta passcode authentication).
 
 ```shell
 ➜  devops-days git:(master) ✗ ./demo_polyglot_1_authenticate.sh 
