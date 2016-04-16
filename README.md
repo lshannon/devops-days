@@ -531,6 +531,9 @@ OK
 
 
 ```
+After Blue Green deployment is completed, the old application can be seen in the application console.
+
+![alt text](blue-green-complete.png "Deployed Applications")
 
 ## Clean Up
 
