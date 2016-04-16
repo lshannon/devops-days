@@ -1,21 +1,28 @@
-# Questrade PCF Developers Workshop
+# .NET Sample
 
-## Building Out The .NET Application
+This is a simple Web API project that running in IIS. Upon start up it creates a database table (if it does not exist), puts sample data into it and then exposes those via a REST end point.
 
-*Disclaimer:* We are not a .NET oriented team, as a result this lab is not intended to show best practice for .NET development but rather how a .NET application can be deployed to Pivotal Cloud Foundry and intergrated with other applications.
+By default .NET REST endpoints return XML, however JSON can be obtained by setting the type in a request to 'text/json'.
 
 ## Deploying to PCF
 
-```shell
-cf push
+The manifest.yml file contains the proper build pack and stack for pushing a .NET application to PCF. Run a 'cf push' from NET_Service/SimpleRest folder to deploy the application to PCF. It will take some time for the application to start.
 
-Online Console:
-https://login.run.pez.pivotal.io/login
-```
+For more information on running Windows on PCF:
 
-## Principle and Practice Verification
+https://docs.pivotal.io/pivotalcf/opsguide/deploying-diego.html
 
-## Debugging
+Trouble Shooting Steps:
+
+https://docs.pivotal.io/pivotalcf/opsguide/troubleshooting-diego-windows.html
+
+## End Points
+
+To test the application run the following endpoint:
+
+https://order-service.cfapps.pez.pivotal.io/api/Order
+
+## Debugging Tips for .NET
 
 To get access to Debugging statements in the PCF logs, set the following variable.
 
@@ -27,7 +34,7 @@ This will allow statements like the following to show up in the logs:
 ```java
 Console.WriteLine("We are using the following to connect to the DB: " + actualConnection);
 ```
-## Trouble Shooting
+## Deployment Tips for .NET
 
 Sometimes there will be a No Compatible Cell error upon push. If this happens just do the push again.
 
