@@ -206,6 +206,32 @@ The deployed service will be displayed in the Application Console of PWS.
 
 ### Clean Up
 
+To remove the deployed application run ./demo_simple_service_3_reset.sh
+
+```shell
+
+devops-days git:(master) ✗ ./demo_simple_service_3_reset.sh 
+ _______    ______   ________        _______                                    
+/       \  /      \ /        |      /       \                                   
+$$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
+$$ |__$$ |$$ |  $$/ $$ |__          $$ |  $$ | /      \ /     \/    \  /      \ 
+$$    $$/ $$ |      $$    |         $$ |  $$ |/$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |
+$$$$$$$/  $$ |   __ $$$$$/          $$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |
+$$ |      $$ \__/  |$$ |            $$ |__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \__$$ |
+$$ |      $$    $$/ $$ |            $$    $$/ $$       |$$ | $$ | $$ |$$    $$/ 
+$$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/  
+                                                                                
+ 
+Running: https://api.run.pivotal.io
+This is running in an public AWS cloud
+ 
+Deleting Simple Data Service
+Deleting app simple-data-service in org Northeast / Canada / space luke as lshannon@pivotal.io...
+OK
+➜  devops-days git:(master) 
+
+```
+
 
 ## Polyglot Demo
 
