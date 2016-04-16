@@ -2,13 +2,28 @@
 
 Pivotal Cloud Foundry (PCF) is a platform that runs on top of an IAAS layer that simplifies developer and operator workflows enabling a true DevOps culture to emerge.
 
-## Architecture
+## Simple Application with Data Service Demo
+
+A demo that shows pushing a Simple Spring Boot application that uses Spring JDBC Template to work with a database bound to the application by the platform
+
+### Authentication
+
+### Deployment
+
+### Clean Up
+
+
+## Polyglot Demo
+
+A demo showing PCF handling a stack with multiple languages and services.
+
+### Architecture
 
 The following is the application that will be deployed. It is a polyglot architecture utilizing .NET, Spring (Java) and Javascript. All applications are running in PCF.
 
 ![alt text](architecture.png "Architecture")
 
-## Environment and Prerequisites
+### Environment and Prerequisites
 
 This needs to run on an installation of Pivotal Cloud Foundry with Diego Windows installed:
 
@@ -18,7 +33,7 @@ The CF CLI also needs to be installed on the development machine to push the app
 
 https://docs.cloudfoundry.org/cf-cli/install-go-cli.html
 
-## Authentication
+### Authentication
 
 Run './demo_polyglot_1_authenticate.sh' to authenticate (NOTE: for this demo a on-premise version of PCF is used that requires Okta passcode authentication).
 
@@ -53,7 +68,7 @@ One Time Code ( Get one at https://login.run.pez.pivotal.io/passcode )>
 
 ```
 
-## Deployment
+### Deployment
 
 Run the following to deploy the stack.
 
@@ -316,7 +331,7 @@ The deployed stack will look like this in the application console.
 
 
 
-## Blue Green Deployment
+### Blue Green Deployment
 Run './demo_blue_green.sh' following to update the Javascript version with a newer version of the application with 0 downtime.
 NOTE: Using Easy Auto Refresh for Chrome the App Console UI and the UI of the application can be refreshed every second to see the actions of the Blue Green deployment in real time:
 
@@ -535,7 +550,7 @@ After Blue Green deployment is completed, the old application can be seen in the
 
 ![alt text](blue-green-complete.png "Deployed Applications")
 
-## Clean Up
+### Clean Up
 
 Run './demo_polyglot_3_reset.sh' following to delete all the application
 
@@ -570,7 +585,7 @@ OK
 ➜  devops-days git:(master) ✗ 
 ```
 
-## Comments and Questions
+# Comments and Questions
 Contact luke.shannon@gmail for questions or comments.
 
 Follow me on twitter @lukewshannon
