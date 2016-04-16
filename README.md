@@ -57,7 +57,256 @@ One Time Code ( Get one at https://login.run.pez.pivotal.io/passcode )>
 
 Run the following to deploy the stack.
 
+NOTE: It can take some time for the .NET application to start up. Be patient.
+
 ```shell
+
+devops-days git:(master) ✗ ./demo_polyglot_2_deploy.sh 
+ _______    ______   ________        _______                                    
+/       \  /      \ /        |      /       \                                   
+$$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
+$$ |__$$ |$$ |  $$/ $$ |__          $$ |  $$ | /      \ /     \/    \  /      \ 
+$$    $$/ $$ |      $$    |         $$ |  $$ |/$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |
+$$$$$$$/  $$ |   __ $$$$$/          $$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |
+$$ |      $$ \__/  |$$ |            $$ |__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \__$$ |
+$$ |      $$    $$/ $$ |            $$    $$/ $$       |$$ | $$ | $$ |$$    $$/ 
+$$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/  
+                                                                                
+ 
+Running: https://api.run.pez.pivotal.io
+This is running in an on-premise vSphere Cluster
+ 
+Deploying .NET Service: /Users/lshannon/Documents/devops-days/NET_Service/SimpleRest
+Pushing .NET Service
+Manifest for deployment: 
+ 
+applications:
+- name: order-service
+memory: 1G
+path: SimpleRest
+host: order-service
+buildpack: binary_buildpack
+stack: windows2012R2
+services:
+Using manifest file /Users/lshannon/Documents/devops-days/NET_Service/SimpleRest/manifest.yml
+
+Using stack windows2012R2...
+OK
+Creating app order-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+Using route order-service.cfapps.pez.pivotal.io
+Binding order-service.cfapps.pez.pivotal.io to order-service...
+OK
+
+Uploading order-service...
+Uploading app files from: /Users/lshannon/Documents/devops-days/NET_Service/SimpleRest/SimpleRest
+Uploading 1.6M, 219 files
+Done uploading               
+OK
+Binding service mysql-svc to app order-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+Starting app order-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+Creating container
+Successfully created container
+Downloading binary_buildpack...
+Downloaded binary_buildpack
+Downloading app package...
+Downloaded app package (4.6M)
+Staging...
+Staging complete
+Exit status 0
+Uploading droplet, build artifacts cache...
+Uploading build artifacts cache...
+Uploading droplet...
+Uploaded build artifacts cache (37B)
+Uploaded droplet (4.5M)
+Uploading complete
+
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 down
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App order-service was started using this command `..\tmp\lifecycle\WebAppServer.exe`
+
+Showing health and status for app order-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: order-service.cfapps.pez.pivotal.io
+last uploaded: Sat Apr 16 19:45:16 UTC 2016
+stack: windows2012R2
+buildpack: binary_buildpack
+
+     state     since                    cpu    memory    disk      details   
+#0   running   2016-04-16 12:47:10 PM   0.0%   0 of 1G   0 of 1G      
+ 
+Deploying Spring Service: /Users/lshannon/Documents/devops-days/Spring_Service/customer-service
+Pushing Spring/Java Service
+Manifest for deployment: 
+ 
+applications:
+- name: customer-service
+memory: 768M
+path: target/CustomerServiceApplication-0.0.1-SNAPSHOT.jar
+host: customer-service
+buildpack: java_buildpack_offline
+services:
+- mysql-svc-2
+Using manifest file /Users/lshannon/Documents/devops-days/Spring_Service/customer-service/manifest.yml
+
+Creating app customer-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+Using route customer-service.cfapps.pez.pivotal.io
+Binding customer-service.cfapps.pez.pivotal.io to customer-service...
+OK
+
+Uploading customer-service...
+Uploading app files from: /Users/lshannon/Documents/devops-days/Spring_Service/customer-service/target/CustomerServiceApplication-0.0.1-SNAPSHOT.jar
+Uploading 1005.6K, 119 files
+Done uploading               
+OK
+Binding service mysql-svc-2 to app customer-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+Starting app customer-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+Downloading java_buildpack_offline...
+Downloaded java_buildpack_offline
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (26.2M)
+Staging...
+-----> Java Buildpack Version: v3.6 (offline) | https://github.com/cloudfoundry/java-buildpack.git#5194155
+-----> Downloading Open Jdk JRE 1.8.0_71 from https://download.run.pivotal.io/openjdk/trusty/x86_64/openjdk-1.8.0_71.tar.gz (found in cache)
+       Expanding Open Jdk JRE to .java-buildpack/open_jdk_jre (1.2s)
+-----> Downloading Open JDK Like Memory Calculator 2.0.1_RELEASE from https://download.run.pivotal.io/memory-calculator/trusty/x86_64/memory-calculator-2.0.1_RELEASE.tar.gz (found in cache)
+       Memory Settings: -XX:MaxMetaspaceSize=78643K -Xss1M -Xms576M -XX:MetaspaceSize=78643K -Xmx576M
+-----> Downloading Maria Db JDBC 1.3.4 from https://download.run.pivotal.io/mariadb-jdbc/mariadb-jdbc-1.3.4.jar (found in cache)
+-----> Downloading Spring Auto Reconfiguration 1.10.0_RELEASE from https://download.run.pivotal.io/auto-reconfiguration/auto-reconfiguration-1.10.0_RELEASE.jar (found in cache)
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (109B)
+Uploaded droplet (71.5M)
+Uploading complete
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App customer-service was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.1_RELEASE -memorySizes=metaspace:64m.. -memoryWeights=heap:75,metaspace:10,native:10,stack:5 -memoryInitials=heap:100%,metaspace:100% -totMemory=$MEMORY_LIMIT) && JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY" && SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/.:$PWD/.java-buildpack/maria_db_jdbc/maria_db_jdbc-1.3.4.jar:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.10.0_RELEASE.jar org.springframework.boot.loader.JarLauncher`
+
+Showing health and status for app customer-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+requested state: started
+instances: 1/1
+usage: 768M x 1 instances
+urls: customer-service.cfapps.pez.pivotal.io
+last uploaded: Sat Apr 16 19:47:23 UTC 2016
+stack: cflinuxfs2
+buildpack: java_buildpack_offline
+
+     state     since                    cpu    memory         disk           details   
+#0   running   2016-04-16 12:48:28 PM   0.0%   692K of 768M   133.1M of 1G      
+ 
+Deploying Javascript Service: /Users/lshannon/Documents/devops-days/Javascript-UI-Service
+Pushing Javascript Service
+Manifest for deployment: 
+ 
+applications:
+- name: javascript-service
+memory: 64M
+host: javascript-service
+buildpack: staticfile_buildpack
+Using manifest file /Users/lshannon/Documents/devops-days/Javascript-UI-Service/manifest.yml
+
+Creating app javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+Using route javascript-service.cfapps.pez.pivotal.io
+Binding javascript-service.cfapps.pez.pivotal.io to javascript-service...
+OK
+
+Uploading javascript-service...
+Uploading app files from: /Users/lshannon/Documents/devops-days/Javascript-UI-Service
+Uploading 3.6K, 3 files
+Done uploading               
+OK
+
+Starting app javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+Downloading staticfile_buildpack...
+Downloaded staticfile_buildpack
+Creating container
+Successfully created container
+Downloading app package...
+Downloaded app package (1.6K)
+Staging...
+-------> Buildpack version 1.2.2
+Downloaded [file:///tmp/buildpacks/2420b40fe7ea294fdddd214aff4c2b00/dependencies/https___s3.amazonaws.com_pivotal-buildpacks_nginx_cflinuxfs2_nginx-1.8.0-linux-x64.tgz]
+grep: Staticfile: No such file or directory
+-----> Using root folder
+-----> Copying project files into public/
+-----> Setting up nginx
+grep: Staticfile: No such file or directory
+Exit status 0
+Staging complete
+Uploading droplet, build artifacts cache...
+Uploading droplet...
+Uploading build artifacts cache...
+Uploaded build artifacts cache (129B)
+Uploaded droplet (2.4M)
+Uploading complete
+
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App javascript-service was started using this command `sh boot.sh`
+
+Showing health and status for app javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
+
+requested state: started
+instances: 1/1
+usage: 64M x 1 instances
+urls: javascript-service.cfapps.pez.pivotal.io
+last uploaded: Sat Apr 16 19:48:39 UTC 2016
+stack: cflinuxfs2
+buildpack: staticfile_buildpack
+
+     state     since                    cpu    memory        disk         details   
+#0   running   2016-04-16 12:49:13 PM   0.0%   3.3M of 64M   6.5M of 1G      
+ 
+➜  devops-days git:(master) ✗                            
 
 
 ```
@@ -70,7 +319,21 @@ https://chrome.google.com/webstore/detail/easy-auto-refresh/aabcgdmkeabbnleenpnc
 
 ```shell
 
-devops-days git:(master) ✗ ./demo_blue_green.sh                                                  
+devops-days git:(master) ✗ ./demo_blue_green.sh
+ _______    ______   ________        _______                                    
+/       \  /      \ /        |      /       \                                   
+$$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
+$$ |__$$ |$$ |  $$/ $$ |__          $$ |  $$ | /      \ /     \/    \  /      \ 
+$$    $$/ $$ |      $$    |         $$ |  $$ |/$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |
+$$$$$$$/  $$ |   __ $$$$$/          $$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |
+$$ |      $$ \__/  |$$ |            $$ |__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \__$$ |
+$$ |      $$    $$/ $$ |            $$    $$/ $$       |$$ | $$ | $$ |$$    $$/ 
+$$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/  
+                                                                                
+ 
+Running: https://api.run.pez.pivotal.io
+This is running in an on-premise vSphere Cluster
+
 Pushing the 'New' Service
 cf push javascript-service-new -p Javascript-UI-Service-Updated -n javascript-service-new -b staticfile_buildpack -m 256M
 Creating app javascript-service-new in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
