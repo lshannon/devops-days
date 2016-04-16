@@ -83,6 +83,14 @@ Space:          luke
 
 ```
 
+### Authenication Notes
+
+Note the organization was selected, however the option was given to selected a space.
+
+For more on PCF Organizations and Spaces:
+
+https://docs.cloudfoundry.org/concepts/roles.html
+
 ### Deployment
 
 To deploy the sample run ./demo_simple_service_2_deploy.sh
@@ -202,6 +210,27 @@ buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buil
 The deployed service will be displayed in the Application Console of PWS.
 
 ![alt text](deployed-simple-data-service.png "Deployed Applications")
+
+### Deployment Notes
+
+Note that the application was push to PCF with the deployment JDBC credentials configured in the application.properties. However the platform bound in the credentials of the service running in the platform that was specified to be used by the application in the manifest.yml file
+
+application.properties
+```shell
+spring.datasource.url=jdbc:mysql://localhost:3306/messages
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+insert.message=INSERT INTO message (message) VALUES (?)
+delete.message=DELETE from message where id = ?
+select.message=SELECT * FROM message
+schema.message=CREATE TABLE IF NOT exists message (id int(11) NOT NULL AUTO_INCREMENT, message varchar(45) DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+db.message=CREATE DATABASE IF NOT EXISTS messages
+```
+
+VCAP service containing the credentials of the Database bound to the space the application is running in. These are injected into the application at runtime
+
+![alt text](vcaps-service.png "vCaps")
 
 
 ### Clean Up
