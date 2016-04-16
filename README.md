@@ -4,7 +4,7 @@ Pivotal Cloud Foundry (PCF) is a platform that runs on top of an IAAS layer that
 
 ## Architecture
 
-The following is the application that will be deployed. It is a polyglot architecture utilizing .NET, Spring (Java) and Javascript.
+The following is the application that will be deployed. It is a polyglot architecture utilizing .NET, Spring (Java) and Javascript. All applications are running in PCF.
 
 ![alt text](architecture.png "Architecture")
 
