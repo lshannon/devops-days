@@ -67,17 +67,18 @@ public class SimpleDataController {
 	
 	//http://127.0.0.1:8080/get
 	@RequestMapping(value="/get", method=RequestMethod.GET)
-    public @ResponseBody String getMessages() {
-		List<String> messages = this.jdbcTemplate.query(
+    public @ResponseBody List<Message> getMessages() {
+		List<Message> messages = this.jdbcTemplate.query(
 		       select,
-		        new RowMapper<String>() {
-		            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-		                String message = new String(rs.getString("message"));
+		        new RowMapper<Message>() {
+		            public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+		                String messageText = new String(rs.getString("message"));
 		                Integer id = new Integer(rs.getInt("id"));
-		                return "Message: " + message + " Id: " + id + "<br/>";
+		                Message message = new Message(id,messageText);
+		                return message;
 		            }
 		        });
-        return messages.toString();
+        return messages;
     }
 	
 	//locally test like this: http://127.0.0.1:8080/delete?id=?
@@ -102,6 +103,32 @@ public class SimpleDataController {
 				jdbcTemplate.update(delete, id);
 			}
 		    return "All Messages Deleted!" ;
+		}
+		
+		class Message {
+			private Integer id;
+			private String message;
+			
+			public Message() { }
+			
+			public Message(Integer id, String message) {
+				super();
+				this.id = id;
+				this.message = message;
+			}
+			public Integer getId() {
+				return id;
+			}
+			public void setId(Integer id) {
+				this.id = id;
+			}
+			public String getMessage() {
+				return message;
+			}
+			public void setMessage(String message) {
+				this.message = message;
+			}
+			
 		}
 
 }
