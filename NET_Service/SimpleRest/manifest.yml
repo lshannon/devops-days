@@ -1,9 +1,0 @@
-applications:
-- name: order-service
-  memory: 1G
-  path: SimpleRest
-  host: order-service
-  buildpack: binary_buildpack
-  stack: windows2012R2
-services:
-- mysql-svc
