@@ -310,6 +310,11 @@ buildpack: staticfile_buildpack
 
 
 ```
+The deployed stack will look like this in the application console.
+
+![alt text](deployed-applications.png "Deployed Applications")
+
+
 
 ## Blue Green Deployment
 Run './demo_blue_green.sh' following to update the Javascript version with a newer version of the application with 0 downtime.
