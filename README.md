@@ -280,6 +280,11 @@ The following is the application that will be deployed. It is a polyglot archite
 
 ![alt text](architecture.png "Architecture")
 
+The UI of this application (clearly not created by a designer) shows JSON being displayed that is obtained from the .NET and Spring services.
+
+![alt text](polyglot-ui.png "Polyglot UI")
+
+
 ### Environment and Prerequisites
 
 This needs to run on an installation of Pivotal Cloud Foundry with Diego Windows installed:
