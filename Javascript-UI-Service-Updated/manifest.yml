@@ -1,0 +1,5 @@
+applications:
+- name: javascript-service
+  memory: 64M
+  host: javascript-service
+  buildpack: staticfile_buildpack
