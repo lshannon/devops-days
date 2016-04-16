@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple UI Example</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <div class=".container-fluid">
+
+        <div class="starter-template">
+            <h1>Simple UI</h1>
+            <h3>This Shows Combining JSON from a .NET service and Java service - running on PCF</h3>
+        </div>
+
+        <h4>.NET Json</h4>
+        <div id="order"></div>
+
+        <h4>Spring Json</h4>
+        <div id="customer"></div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var output = "";
+                $.getJSON('https://order-service.cfapps.pez.pivotal.io/api/Order', function (data) {
+                    
+                    $.each(data, function (index) {
+                        output += "<div class='row'>";
+                        output += "<div class='col-md-2'>Order ID: " + data[index].ID + "</div>";
+                        output += "<div class='col-md-2'>customerId: " + data[index].customerId + "</div>";
+                        output += "<div class='col-md-2'>quantity:" + data[index].quantity + "</div>";
+                        output += "</div>";
+                        }
+                    )
+                    document.getElementById("order").innerHTML = output;
+                });
+            })
+        </script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 var output = "";
+                 $.getJSON('https://customer-service.cfapps.pez.pivotal.io/', function (data) {
+
+                     $.each(data, function (index) {
+                         output += "<div class='row'>";
+                         output += "<div class='col-md-2'>Customer ID: " + data[index].id + "</div>";
+                         output += "<div class='col-md-2'>Last Name: " + data[index].lastName + "</div>";
+                         output += "<div class='col-md-2'>First Name: " + data[index].firstName + "</div>";
+                         output += "</div>";
+                     }
+                     )
+                     document.getElementById("customer").innerHTML = output;
+                 });
+             })
+        </script>
+
+
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+/.settings/
+/.project
+/.classpath
+/.springbeans
+/target
+/bin
+*/.settings/
+*/.project
+*/.classpath
+*/.springbeans
+*/target
+*/bin
