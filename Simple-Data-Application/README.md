@@ -1,28 +1,24 @@
-# Questrade PCF Developers Workshop
+# Simple-Data-Application
 
-Luke
+This is a simple Spring Boot application that shows working with a Database using Spring JDBC Template. It provides very simple REST end points to update/view database records.
 
-## Building Out The Service
+NOTE: It needs to be bound to a MySQL data service. The SQL has not been tested on Postgres and most likely will not work.
 
-The project for this lab is in the customer-service folder.
+## Summary of Endpoints
 
-1.  Fork the https://github.com/lshannonPivotal/Qestrade repository, and clone it to your local machine.
+Set Message:
 
-1.  Open the Spring Tool Suite (STS).  Off the menu, select "File"->"Import".  Expand the "Maven" folder, and select "Existing Maven Projects".  Browse to "Questrade-Development-Workshop/Spring_Service/customer-service" directory, check the box, and import the project.  Note there are corresponding "solution" directories you can import to view in case you get stuck.
+http://simple-data-service.cfapps.io/set?message=Hello World
 
-1.  In the main application code, make this a Spring Boot application by adding the @SpringBootApplication annotation.  Hint: Look for a source code file with a `public static void main(String[] args)` method.
+Get All Messages:
 
-2.  Open the CustomerServiceController.java source file and enable this class to be accessible through a REST interface by adding the @RestController annotation just before the class declaration.
+http://simple-data-service.cfapps.io/get
 
-3.  In the same file, find the `getCustomers()` method, and annotate it to be called with a relative URL path of `/` by adding a @RequestMapping annotation.
+Delete All Messages:
 
-4.  Open the /src/main/resources/application.yml file and examine the contents.  Note we have requested that the database repository schema be created by setting the `spring.jpa.generate-ddl` property to true.  Also note we have currently disabled basic authentication.
+Delete Single Message:
 
-5.  Open the pom.xml file, and note that the `spring-cloud-services-starter-parent` has been included as the parent project.  By specifying the version here, appropriate versions of other dependencies specified below will be selected automatically.
 
-1.  Open the manifest.yml file, and examine the contents.  This file provides Cloud Foundry instructions on how to deploy your application.  Note that one service has been specified, the `mysql-svc`.  This will be the backing store for the customer repository.
-
-1.  Build the project.  Open a command prompt window and navigate to the customer-service directory.  Enter `mvn clean package`, and look for a SUCCESS message at the end.
 
 ## Deploying to PCF
 
