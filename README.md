@@ -20,7 +20,7 @@ https://docs.cloudfoundry.org/cf-cli/install-go-cli.html
 
 ## Authentication
 
-Run the following to authenticate (NOTE: for this demo a on-premise version of PCF is used that requires Okta passcode authentication).
+Run './demo_polyglot_1_authenticate.sh' to authenticate (NOTE: for this demo a on-premise version of PCF is used that requires Okta passcode authentication).
 
 ```shell
 ➜  devops-days git:(master) ✗ ./demo_polyglot_1_authenticate.sh 
@@ -63,7 +63,7 @@ Run the following to deploy the stack.
 ```
 
 ## Blue Green Deployment
-Run the following to update the Javascript version with a newer version of the application with 0 downtime.
+Run './demo_blue_green.sh' following to update the Javascript version with a newer version of the application with 0 downtime.
 NOTE: Using Easy Auto Refresh for Chrome the App Console UI and the UI of the application can be refreshed every second to see the actions of the Blue Green deployment in real time:
 
 https://chrome.google.com/webstore/detail/easy-auto-refresh/aabcgdmkeabbnleenpncegpcngjpnjkc?hl=en
@@ -266,7 +266,7 @@ OK
 
 ## Clean Up
 
-Run the following to delete all the application
+Run './demo_polyglot_3_reset.sh' following to delete all the application
 
 ```shell
 devops-days git:(master) ✗ ./demo_polyglot_3_reset.sh 
