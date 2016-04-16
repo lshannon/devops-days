@@ -18,3 +18,5 @@ echo "Deleting Spring/Java Service"
 cf delete customer-service -f
 echo "Deleting Javascript Service"
 cf delete javascript-service -f
+echo "Deleting Old Javascript Service (artifact of Blue/Green deployment)"
+cf delete javascript-service-old -f

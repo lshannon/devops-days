@@ -1,3 +1,17 @@
+echo ' _______    ______   ________        _______                                    ';
+echo '/       \  /      \ /        |      /       \                                   ';
+echo '$$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  ';
+echo '$$ |__$$ |$$ |  $$/ $$ |__          $$ |  $$ | /      \ /     \/    \  /      \ ';
+echo '$$    $$/ $$ |      $$    |         $$ |  $$ |/$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |';
+echo '$$$$$$$/  $$ |   __ $$$$$/          $$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |';
+echo '$$ |      $$ \__/  |$$ |            $$ |__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \__$$ |';
+echo '$$ |      $$    $$/ $$ |            $$    $$/ $$       |$$ | $$ | $$ |$$    $$/ ';
+echo '$$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/  ';
+echo "                                                                                ";
+echo " "
+echo "Running: https://api.run.pez.pivotal.io"
+echo "This is running in an onpremise vSphere Cluster"
+echo " "
 DOMAIN=cfapps.pez.pivotal.io
 
 # push the application with a manifest that binds all required services

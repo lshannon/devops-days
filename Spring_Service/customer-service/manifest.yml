@@ -5,4 +5,4 @@ applications:
   host: customer-service
   buildpack: java_buildpack_offline
 services:
-- mysql-svc
+- mysql-svc-2
