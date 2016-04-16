@@ -2,6 +2,10 @@
 
 This is a simple Spring Boot application that shows working with a Database using Spring JDBC Template. It provides very simple REST end points to update/view database records.
 
+Upon start up it will:
+- Create a database table if it does not exist
+- Insert some sample data
+
 NOTE: It needs to be bound to a MySQL data service. The SQL has not been tested on Postgres and most likely will not work.
 
 ## Summary of Endpoints
@@ -16,21 +20,23 @@ http://simple-data-service.cfapps.io/get
 
 Delete All Messages:
 
+http://simple-data-service.cfapps.io/deleteAll
+
 Delete Single Message:
+
+http://simple-data-service.cfapps.io/delete?id=1
 
 
 
 ## Deploying to PCF
 
-Now let's go ahead and deploy the application to PCF.
+Simply run 'cf push' from the root directory of the project (the manifest.yml file will be in this location). The cli will detect the manifest.yml file which contains all the meta data required to successfully push the application. A MySQL service called 'mysql-datasource' must exist in the space the application is pushed too.
 
-1.  First, let's make sure we are targeting the correct CF instance.  From the command prompt, enter `cf login -a https://api.run.pez.pivotal.io`.  Enter your email address for the user, and your password.  Select `pivot-lshannon` as the org, and the space that has been assigned to you.
+## Endpoints
 
-1.  From the same directory you ran the build, enter `cf push`.  Wait until you see that your application has started and shows as running.
+To test the application, hit the root path:
 
-## Principle and Practice Verification
-
-Log into the Apps Manager in your browser, at https://apps.run.pez.pivotal.io.  Select the correct org and space and observe your app is running.  Click on the URL and you should observe a JSON formatted result of a list of customers as shown below.
+https://customer-service.cfapps.pez.pivotal.io/
 
 ```
 {
