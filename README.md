@@ -6,6 +6,8 @@ Pivotal Cloud Foundry (PCF) is a platform that runs on top of an IAAS layer that
 
 The following is the application that will be deployed. It is a polyglot architecture utilizing .NET, Spring (Java) and Javascript.
 
+![alt text](architecture.png "Architecture")
+
 ## Environment and Prerequisites
 
 This needs to run on an installation of Pivotal Cloud Foundry with Diego Windows installed:
