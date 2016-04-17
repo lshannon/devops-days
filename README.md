@@ -250,17 +250,7 @@ Follow the directions for setting CloudFoundry on Papertrail:
 
 http://help.papertrailapp.com/kb/hosting-services/cloud-foundry/
 
-To set the custom service up to drain the logs to Papertrail and bind it to the application.
-
-### Using Metrics Dashboard
-
-Click the link App Console for the application.
-
-![alt text](metrics-link.png "Metrics Link")
-
-This will open a link in a seperate window to the Metrics Dashboard.
-
-![alt text](metrics-dashboard.png "Metrics Dashboard")
+Run ./demo_simple_service_3_log.sh to set up the custom service up to drain the logs to Papertrail and bind the custom service to the application.
 
 ```shell
 
@@ -302,6 +292,16 @@ buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buil
 ➜  devops-days git:(master) ✗ 
 
 ```
+
+### Using Metrics Dashboard
+
+Click the link App Console for the application.
+
+![alt text](metrics-link.png "Metrics Link")
+
+This will open a link in a seperate window to the Metrics Dashboard.
+
+![alt text](metrics-dashboard.png "Metrics Dashboard")
 
 ### Clean Up
 
