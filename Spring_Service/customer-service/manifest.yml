@@ -1,7 +1,7 @@
 applications:
 - name: customer-service
   memory: 768M
-  path: target/CustomerServiceApplication-0.0.1-SNAPSHOT.jar
+  path: target/customer-service.jar
   host: customer-service
   buildpack: java_buildpack_offline
 services:

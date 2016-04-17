@@ -2,8 +2,10 @@ package io.pivotal.devops;
 
 
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -72,6 +75,7 @@ interface CustomerRepository extends CrudRepository<Customer, Long> {
 
 }
 
+@CrossOrigin
 @RestController
 class CustomerController {
 	@Autowired
@@ -132,7 +136,6 @@ class Customer {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-    
     
     
 }
