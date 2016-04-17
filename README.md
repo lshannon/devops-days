@@ -49,7 +49,7 @@ Not logged in. Use 'cf login' to log in.
 cf login -a https://api.run.pivotal.io
 API endpoint: https://api.run.pivotal.io
 
-Email> lshannon@pivotal.io
+Email> <enter the email your account was set up with>
 
 Password> 
 Authenticating...
@@ -359,8 +359,8 @@ OK
 
                    
 API endpoint:   https://api.run.pez.pivotal.io (API version: 2.43.0)   
-User:           lshannon@pivotal.io   
-Org:            pivot-lshannon   
+User:           <User Account Email>   
+Org:            pivot-lshannon  
 Space:          devops-days   
 Running: cf login -sso
 API endpoint: https://api.run.pez.pivotal.io
