@@ -55,32 +55,6 @@ Password>
 Authenticating...
 OK
 
-Targeted org Northeast / Canada
-
-Select a space (or press enter to skip):
-1. development
-2. tmf
-3. apf
-4. sani
-5. jf-space
-6. atm
-7. Nenad
-8. adib
-9. vinay
-10. pcf-mailer
-11. cjd
-12. luke
-13. jaime
-14. kartik
-15. Manulife
-16. TJUG-TJUG-48
-17. abc
-18. manulife-friday
-
-Space> 12
-Targeted space luke
-
-
                    
 API endpoint:   https://api.run.pivotal.io (API version: 2.53.0)   
 User:           lshannon@pivotal.io   
