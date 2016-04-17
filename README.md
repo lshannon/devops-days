@@ -266,6 +266,9 @@ buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buil
 ➜  devops-days git:(master) ✗ 
 
 ```
+After a short pause the logs will show up in the Papertrail dashboard.
+
+![alt text](papertrail-dashboard.png "Logs")
 
 ### Using Metrics Dashboard
 
