@@ -297,11 +297,11 @@ buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buil
 
 Click the link App Console for the application.
 
-![alt text](metrics-link.png "Metrics Link")
+![alt text](metrics-link.png "Metrics")
 
 This will open a link in a seperate window to the Metrics Dashboard.
 
-![alt text](metrics-dashboard.png "Metrics Dashboard")
+![alt text](metrics-dashboard.png "Metrics")
 
 ### Clean Up
 
