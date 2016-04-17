@@ -295,11 +295,11 @@ buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buil
 
 ### Clean Up
 
-To remove the deployed application run ./demo_simple_service_3_reset.sh
+To remove the deployed application run ./demo_simple_service_4_reset.sh
 
 ```shell
 
-devops-days git:(master) ✗ ./demo_simple_service_3_reset.sh 
+devops-days git:(master) ✗ ./demo_simple_service_4_reset.sh 
  _______    ______   ________        _______                                    
 /       \  /      \ /        |      /       \                                   
 $$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
