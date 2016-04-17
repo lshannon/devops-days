@@ -240,6 +240,59 @@ VCAP service containing the credentials of the Database bound to the space the a
 
 ![alt text](vcaps-service.png "vCaps")
 
+### Log Monitoring with Paper Trails
+
+Create an account on Papertrail:
+
+https://papertrailapp.com/
+
+Follow the directions for setting CloudFoundry on Papertrail:
+
+http://help.papertrailapp.com/kb/hosting-services/cloud-foundry/
+
+To set the custom service up to drain the logs to Papertrail and bind it to the application.
+
+```shell
+
+➜  devops-days git:(master) ✗ ./demo_simple_service_3_log.sh 
+Creating user provided service my-logs in org Northeast / Canada / space luke as lshannon@pivotal.io...
+OK
+Binding service my-logs to app simple-data-service in org Northeast / Canada / space luke as lshannon@pivotal.io...
+OK
+TIP: Use 'cf restage simple-data-service' to ensure your env variable changes take effect
+Stopping app simple-data-service in org Northeast / Canada / space luke as lshannon@pivotal.io...
+OK
+
+Starting app simple-data-service in org Northeast / Canada / space luke as lshannon@pivotal.io...
+
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
+1 of 1 instances running
+
+App started
+
+
+OK
+
+App simple-data-service was started using this command `CALCULATED_MEMORY=$($PWD/.java-buildpack/open_jdk_jre/bin/java-buildpack-memory-calculator-2.0.1_RELEASE -memorySizes=metaspace:64m.. -memoryWeights=heap:75,metaspace:10,native:10,stack:5 -memoryInitials=heap:100%,metaspace:100% -totMemory=$MEMORY_LIMIT) && JAVA_OPTS="-Djava.io.tmpdir=$TMPDIR -XX:OnOutOfMemoryError=$PWD/.java-buildpack/open_jdk_jre/bin/killjava.sh $CALCULATED_MEMORY" && SERVER_PORT=$PORT eval exec $PWD/.java-buildpack/open_jdk_jre/bin/java $JAVA_OPTS -cp $PWD/.:$PWD/.java-buildpack/spring_auto_reconfiguration/spring_auto_reconfiguration-1.10.0_RELEASE.jar org.springframework.boot.loader.JarLauncher`
+
+Showing health and status for app simple-data-service in org Northeast / Canada / space luke as lshannon@pivotal.io...
+OK
+
+requested state: started
+instances: 1/1
+usage: 256M x 1 instances
+urls: simple-data-service.cfapps.io
+last uploaded: Sun Apr 17 06:40:05 UTC 2016
+stack: cflinuxfs2
+buildpack: java-buildpack=v3.6-offline-https://github.com/cloudfoundry/java-buildpack.git#5194155 java-main open-jdk-like-jre=1.8.0_71 open-jdk-like-memory-calculator=2.0.1_RELEASE spring-auto-reconfiguration=1.10.0_RELEASE
+
+     state     since                    cpu    memory           disk           details   
+#0   running   2016-04-17 01:01:45 AM   0.1%   246.1M of 256M   138.3M of 1G      
+➜  devops-days git:(master) ✗ 
+
+```
+
 ### Clean Up
 
 To remove the deployed application run ./demo_simple_service_3_reset.sh
