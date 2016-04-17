@@ -252,6 +252,16 @@ http://help.papertrailapp.com/kb/hosting-services/cloud-foundry/
 
 To set the custom service up to drain the logs to Papertrail and bind it to the application.
 
+### Using Metrics Dashboard
+
+Click the link App Console for the application.
+
+![alt text](metrics-link.png "Metrics Link")
+
+This will open a link in a seperate window to the Metrics Dashboard.
+
+![alt text](metrics-dashboard.png "Metrics Dashboard")
+
 ```shell
 
 ➜  devops-days git:(master) ✗ ./demo_simple_service_3_log.sh 
