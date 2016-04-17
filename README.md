@@ -240,21 +240,6 @@ VCAP service containing the credentials of the Database bound to the space the a
 
 ![alt text](vcaps-service.png "vCaps")
 
-### Setting Up Papertrail
-
-An account is required on Papertrail:
-
-https://papertrailapp.com
-
-```shell
-
-devops-days git:(master) cf cups my-logs -l syslog://logs.papertrailapp.com:12654
-Creating user provided service my-logs in org Northeast / Canada / space luke as lshannon@pivotal.io...
-OK
-
-```
-
-
 ### Clean Up
 
 To remove the deployed application run ./demo_simple_service_3_reset.sh
