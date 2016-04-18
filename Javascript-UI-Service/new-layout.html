@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>PCF UI</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    -->
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/narrow-jumbotron.css" rel="stylesheet">
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                var output = "";
+                $.getJSON('https://order-service.cfapps.pez.pivotal.io/api/Order', function (data) {
+
+                    $.each(data, function (index) {
+                        output += "<div class='col-md-2'>Order ID: " + data[index].ID + "</div>";
+                        output += "<div class='col-md-2'>customerId: " + data[index].customerId + "</div>";
+                        output += "<div class='col-md-2'>quantity:" + data[index].quantity + "</div>";
+                        output += "</div>";
+                        }
+                    )
+                    document.getElementById("order").innerHTML = output;
+                });
+            })
+        </script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 var output = "";
+                 $.getJSON('https://customer-service.cfapps.pez.pivotal.io/', function (data) {
+
+                     $.each(data, function (index) {
+                         output += "<div class='row'>";
+                         output += "<div class='col-md-2'>Customer ID: " + data[index].id + "</div>";
+                         output += "<div class='col-md-2'>Last Name: " + data[index].lastName + "</div>";
+                         output += "<div class='col-md-2'>First Name: " + data[index].firstName + "</div>";
+                         output += "</div>";
+                     }
+                     )
+                     document.getElementById("customer").innerHTML = output;
+                 });
+             })
+        </script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-xs-right">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Blue Release</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">PCF Polyglot UI</h1>
+        <p class="lead">The following is displaying JSON from a .NET and Spring Service running in PCF.</p>
+        <p class="lead">This UI itself is also running on PCF.</p>
+      </div>
+
+      <div class="row marketing">
+
+        <div class="col-lg-6">
+          <h4>.NET JSON Data</h4>
+          <p></p>
+
+          <h4>Java/Spring JSON Data</h4>
+          <p></p>
+
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; lshannon@pivotal.io 2016</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
