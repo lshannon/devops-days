@@ -196,7 +196,7 @@ The deployed service will be displayed in the Application Console of PWS.
 
 ### Deployment Notes
 
-Note that the application was push to PCF with the deployment JDBC credentials configured in the application.properties. However the platform bound in the credentials of the service running in the platform that was specified to be used by the application in the manifest.yml file
+Note that the application was push to PCF with the JDBC credentials for a local 'Development' connection configured in the application.properties. However the platform injected the credentials of the service running in the space of the platform that was specified in the manifest.yml file rather than using the 'Development' credentials.
 
 application.properties
 ```shell
