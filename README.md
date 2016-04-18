@@ -782,6 +782,12 @@ OK
 
 ```
 
+After Blue Green deployment is completed, the old application can be seen in the application console.
+![alt text](blue-green-complete.png "Deployed Applications")
+
+The UI will change to the 'Green' release.
+![alt text](polyglot-ui-green.png "Deployed Applications")
+
 # Comments and Questions
 Contact lshannon@pivotal.io for questions or comments.
 
