@@ -634,13 +634,13 @@ The deployed stack will look like this in the application console.
 
 ### Blue Green Deployment
 Run './demo_blue_green.sh' following to update the Javascript version with a newer version of the application with 0 downtime.
-NOTE: Using Easy Auto Refresh for Chrome the App Console UI and the UI of the application can be refreshed every second to see the actions of the Blue Green deployment in real time:
+NOTE: Using Easy Auto Refresh for Chrome the App Console UI and the UI of the application can be refreshed every few seconds to see the actions of the Blue Green deployment in real time:
 
 https://chrome.google.com/webstore/detail/easy-auto-refresh/aabcgdmkeabbnleenpncegpcngjpnjkc?hl=en
 
 ```shell
 
-devops-days git:(master) ✗ ./demo_blue_green.sh
+➜  devops-days git:(master) ✗ ./demo_blue_green.sh
  _______    ______   ________        _______                                    
 /       \  /      \ /        |      /       \                                   
 $$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
@@ -653,8 +653,8 @@ $$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/
                                                                                 
  
 Running: https://api.run.pez.pivotal.io
-This is running in an on-premise vSphere Cluster
-
+This is running in an onpremise vSphere Cluster
+ 
 Pushing the 'New' Service
 cf push javascript-service-new -p Javascript-UI-Service-Updated -n javascript-service-new -b staticfile_buildpack -m 256M
 Creating app javascript-service-new in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
@@ -666,7 +666,7 @@ OK
 
 Uploading javascript-service-new...
 Uploading app files from: Javascript-UI-Service-Updated
-Uploading 3.6K, 3 files
+Uploading 312.7K, 22 files
 Done uploading               
 OK
 
@@ -676,7 +676,7 @@ Downloaded staticfile_buildpack
 Creating container
 Successfully created container
 Downloading app package...
-Downloaded app package (1.6K)
+Downloaded app package (287.2K)
 Staging...
 -------> Buildpack version 1.2.2
 Downloaded [file:///tmp/buildpacks/2420b40fe7ea294fdddd214aff4c2b00/dependencies/https___s3.amazonaws.com_pivotal-buildpacks_nginx_cflinuxfs2_nginx-1.8.0-linux-x64.tgz]
@@ -690,8 +690,8 @@ Staging complete
 Uploading droplet, build artifacts cache...
 Uploading droplet...
 Uploading build artifacts cache...
-Uploaded build artifacts cache (131B)
-Uploaded droplet (2.4M)
+Uploaded build artifacts cache (130B)
+Uploaded droplet (3M)
 Uploading complete
 
 1 of 1 instances running
@@ -710,96 +710,26 @@ requested state: started
 instances: 1/1
 usage: 256M x 1 instances
 urls: javascript-service-new.cfapps.pez.pivotal.io
-last uploaded: Sat Apr 16 19:35:40 UTC 2016
+last uploaded: Mon Apr 18 06:03:12 UTC 2016
 stack: cflinuxfs2
 buildpack: staticfile_buildpack
 
      state     since                    cpu    memory      disk      details   
-#0   running   2016-04-16 12:36:15 PM   0.0%   0 of 256M   0 of 1G      
+#0   running   2016-04-17 11:03:46 PM   0.0%   0 of 256M   0 of 1G      
 
 Testing the new service
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 4871
+Content-Type: text/html
+Date: Mon, 18 Apr 2016 06:03:52 GMT
+Etag: "5714789c-1307"
+Last-Modified: Mon, 18 Apr 2016 06:03:08 GMT
+Server: nginx
+X-Cf-Requestid: de4aec2e-ae6e-4766-582d-70a47b894748
+Connection: close
 
-    <title>Simple UI Example</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-</head>
-
-<body>
-
-
-    <div class=".container-fluid">
-
-        <div class="starter-template">
-            <h1>Simple UI</h1>
-            <h3>This Shows Combining JSON from a .NET service and Java service - running on PCF</h3>
-            <h3>Hi Jim!</h3>
-        </div>
-
-        <h4>.NET Json</h4>
-        <div id="order"></div>
-
-        <h4>Spring Json</h4>
-        <div id="customer"></div>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                var output = "";
-                $.getJSON('https://order-service.cfapps.pez.pivotal.io/api/Order', function (data) {
-
-                    $.each(data, function (index) {
-                        output += "<div class='row'>";
-                        output += "<div class='col-md-2'>Order ID: " + data[index].ID + "</div>";
-                        output += "<div class='col-md-2'>customerId: " + data[index].customerId + "</div>";
-                        output += "<div class='col-md-2'>quantity:" + data[index].quantity + "</div>";
-                        output += "</div>";
-                        }
-                    )
-                    document.getElementById("order").innerHTML = output;
-                });
-            })
-        </script>
-
-         <script type="text/javascript">
-             $(document).ready(function () {
-                 var output = "";
-                 $.getJSON('https://customer-service.cfapps.pez.pivotal.io/', function (data) {
-
-                     $.each(data, function (index) {
-                         output += "<div class='row'>";
-                         output += "<div class='col-md-2'>Customer ID: " + data[index].id + "</div>";
-                         output += "<div class='col-md-2'>Last Name: " + data[index].lastName + "</div>";
-                         output += "<div class='col-md-2'>First Name: " + data[index].firstName + "</div>";
-                         output += "</div>";
-                     }
-                     )
-                     document.getElementById("customer").innerHTML = output;
-                 });
-             })
-        </script>
-
-
-
-
-    </div>
-
-
-</body>
-</html>
 
 Move Traffic to new application
 cf map-route javascript-service-new cfapps.pez.pivotal.io -n javascript-service
@@ -829,6 +759,10 @@ cf stop javascript-service
 Stopping app javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
 OK
 
+Delete any old back up versions of the application
+cf delete javascript-service-old -f
+Deleting app javascript-service-old in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
+OK
 Rename the old service to a name that reflects it new status
 cf rename javascript-service javascript-service-old
 Renaming app javascript-service to javascript-service-old in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
@@ -843,55 +777,12 @@ Rename the app
 cf rename javascript-service-new javascript-service
 Renaming app javascript-service-new to javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
 OK
-➜  devops-days git:(master) ✗ 
+➜  devops-days git:(master) 
 
-
-```
-After Blue Green deployment is completed, the old application can be seen in the application console.
-
-![alt text](blue-green-complete.png "Deployed Applications")
-
-The UI will change to the 'Green' release.
-
-![alt text](polyglot-ui-green.png "Deployed Applications")
-
-### Clean Up
-
-Run './demo_polyglot_3_reset.sh' following to delete all the application
-
-```shell
-devops-days git:(master) ✗ ./demo_polyglot_3_reset.sh 
- _______    ______   ________        _______                                    
-/       \  /      \ /        |      /       \                                   
-$$$$$$$  |/$$$$$$  |$$$$$$$$/       $$$$$$$  |  ______   _____  ____    ______  
-$$ |__$$ |$$ |  $$/ $$ |__          $$ |  $$ | /      \ /     \/    \  /      \ 
-$$    $$/ $$ |      $$    |         $$ |  $$ |/$$$$$$  |$$$$$$ $$$$  |/$$$$$$  |
-$$$$$$$/  $$ |   __ $$$$$/          $$ |  $$ |$$    $$ |$$ | $$ | $$ |$$ |  $$ |
-$$ |      $$ \__/  |$$ |            $$ |__$$ |$$$$$$$$/ $$ | $$ | $$ |$$ \__$$ |
-$$ |      $$    $$/ $$ |            $$    $$/ $$       |$$ | $$ | $$ |$$    $$/ 
-$$/        $$$$$$/  $$/             $$$$$$$/   $$$$$$$/ $$/  $$/  $$/  $$$$$$/  
-                                                                                
- 
-Running: https://api.run.pez.pivotal.io
-This is running in an onpremise vSphere Cluster
- 
-Deleting .NET Service
-Deleting app order-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
-OK
-Deleting Spring/Java Service
-Deleting app customer-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
-OK
-Deleting Javascript Service
-Deleting app javascript-service in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
-OK
-Deleting Old Javascript Service (artifact of Blue/Green deployment)
-Deleting app javascript-service-old in org pivot-lshannon / space devops-days as lshannon@pivotal.io...
-OK
-➜  devops-days git:(master) ✗ 
 ```
 
 # Comments and Questions
-Contact luke.shannon@gmail for questions or comments.
+Contact lshannon@pivotal.io for questions or comments.
 
 Follow me on twitter @lukewshannon
 
