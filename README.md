@@ -634,7 +634,7 @@ The deployed stack will look like this in the application console.
 
 
 ### Blue Green Deployment
-Run './demo_blue_green.sh' following to update the Javascript version with a newer version of the application with 0 downtime.
+Run './demo_blue_green.sh' to update the Javascript version with a newer version of the application with 0 downtime.
 NOTE: Using Easy Auto Refresh for Chrome the App Console UI and the UI of the application can be refreshed every few seconds to see the actions of the Blue Green deployment in real time:
 
 https://chrome.google.com/webstore/detail/easy-auto-refresh/aabcgdmkeabbnleenpncegpcngjpnjkc?hl=en
