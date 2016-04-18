@@ -5,7 +5,7 @@ Pivotal Cloud Foundry (PCF) is a platform that runs on top of an IAAS layer that
 To demonstrate this we will review:
 - The cloud agnostic nature of Pivotal Cloud Foundry (one deploymnet will be on PCF running on AWS, the others on PCF running on vSphere)
 - Simple Spring Boot Service Using Spring JDBC to work with a data base (exposing data via REST)
-- A Polyglot application stack running in PCF (.NET, Java, Javascript)
+- Simple deploument of a Polyglot application stack running in PCF (.NET, Java, Javascript)
 - A Blue/Green update to a running service without affecting availablity
 - Push button scaling of applications using PCF
 - Access to Logs and metrics using PCF
