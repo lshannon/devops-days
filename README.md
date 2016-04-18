@@ -319,7 +319,7 @@ The following is the application that will be deployed. It is a polyglot archite
 
 ![alt text](architecture.png "Architecture")
 
-The UI of this application (clearly not created by a designer) shows JSON being displayed that is obtained from the .NET and Spring services.
+The UI of this application shows JSON being displayed that is obtained from the .NET and Spring services. The intial deployment is the 'Blue Release' and has blue text. This will make more sense after the Blue/Green demo.
 
 ![alt text](polyglot-ui.png "Polyglot UI")
 
