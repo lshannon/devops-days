@@ -23,7 +23,16 @@ echo ""
 # Run Tests on the newly deployed app check that it is okay
 echo "Testing the new service"
 echo ""
-curl http://javascript-service-new.$DOMAIN
+RESPONSE=`curl -sI http://javascript-service-new.$DOMAIN`
+echo "$RESPONSE"
+if [[ $RESPONSE != *"HTTP/1.1 200 OK"* ]]
+then
+  echo "Service Did Not Start Up - Stopping Upgrade...";
+  cf delete javascript-service-new -f;
+  echo "New Service Deleted"
+  echo "Upgrade Stopping"
+  exit 1;
+fi
 echo ""
 
 # start directing traffic to the new app instance
@@ -55,6 +64,11 @@ echo "Stop the old application"
 echo "cf stop javascript-service"
 cf stop javascript-service
 echo ""
+
+# delete any version of the old app that might be lying around still
+echo "Delete any old back up versions of the application"
+echo "cf delete javascript-service-old -f"
+cf delete javascript-service-old -f
 
 echo "Rename the old service to a name that reflects it new status"
 echo "cf rename javascript-service javascript-service-old"
