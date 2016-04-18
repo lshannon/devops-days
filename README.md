@@ -1,4 +1,4 @@
-# DevOps Days Vancouver
+# DevOps Days Vancouver Demos
 
 Pivotal Cloud Foundry (PCF) is a platform that runs on top of an IAAS layer that simplifies developer and operator workflows enabling a true DevOps culture to emerge.
 
@@ -9,6 +9,7 @@ To demonstrate this we will review:
 - A Blue/Green update to a running service without affecting availablity
 - Push button scaling of applications using PCF
 - Access to Logs and metrics using PCF
+- Integration with 3rd party log monitoring tools
 
 ## Simple Application with Data Service Demo
 
