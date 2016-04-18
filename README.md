@@ -68,7 +68,7 @@ Space:          luke
 
 ### Authenication Notes
 
-Note the organization was selected, however the option was given to selected a space.
+Note the organization and space were specified for this demo.
 
 For more on PCF Organizations and Spaces:
 
