@@ -851,6 +851,10 @@ After Blue Green deployment is completed, the old application can be seen in the
 
 ![alt text](blue-green-complete.png "Deployed Applications")
 
+The UI will change to the 'Green' release.
+
+![alt text](polyglot-ui-green.png "Deployed Applications")
+
 ### Clean Up
 
 Run './demo_polyglot_3_reset.sh' following to delete all the application
