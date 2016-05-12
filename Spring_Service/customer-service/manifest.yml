@@ -1,8 +1,8 @@
 applications:
-- name: customer-service
+- name: java-service
   memory: 768M
   path: target/customer-service.jar
-  host: customer-service
+  host: java-service
   buildpack: java_buildpack_offline
 services:
 - mysql-svc-2

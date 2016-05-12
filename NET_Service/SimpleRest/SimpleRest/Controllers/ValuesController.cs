@@ -19,7 +19,7 @@ namespace OrderRest.Controllers
     }
 
     //Controller - full of logic
-    [EnableCors(origins: "https://javascript-service.cfapps.pez.pivotal.io", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class OrderController : ApiController
     {
    

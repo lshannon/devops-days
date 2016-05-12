@@ -12,11 +12,12 @@ echo " "
 echo "Running: https://api.run.pez.pivotal.io"
 echo "This is running in an onpremise vSphere Cluster"
 echo " "
+
 echo "Deleting .NET Service"
-cf delete order-service -f
+cf delete dotNet-service -f
 echo "Deleting Spring/Java Service"
-cf delete customer-service -f
+cf delete java-service -f
 echo "Deleting Javascript Service"
-cf delete javascript-service -f
+cf delete javascript-ui -f
 echo "Deleting Old Javascript Service (artifact of Blue/Green deployment)"
-cf delete javascript-service-old -f
+cf delete javascript-ui-old -f

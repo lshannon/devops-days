@@ -10,7 +10,7 @@ namespace OrderRest
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("https://javascript-service.cfapps.pez.pivotal.io", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

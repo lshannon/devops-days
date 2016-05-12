@@ -85,7 +85,7 @@
             output += "<div class='col-md-4'>Customer ID</div>";
             output += "<div class='col-md-4'>Quantity</div>";
             output += "</div>";
-            $.getJSON('https://order-service.cfapps.pez.pivotal.io/api/Order', function (data) {
+            $.getJSON('https://dotNet-service.cfapps.pez.pivotal.io/api/Order', function (data) {
 
                 $.each(data, function (index) {
                     output += "<div class='row'>";
@@ -108,7 +108,7 @@
              output += "<div class='col-md-4'>Last Name</div>";
              output += "<div class='col-md-4'>First Name</div>";
              output += "</div>";
-             $.getJSON('https://customer-service.cfapps.pez.pivotal.io/', function (data) {
+             $.getJSON('https://java-service.cfapps.pez.pivotal.io/', function (data) {
 
                  $.each(data, function (index) {
                      output += "<div class='row'>";

@@ -71,3 +71,4 @@ C:\Users\Luke\Documents\Questrade-Development-Workshop\NET_Service\SimpleRest\Si
 C:\Users\Luke\Documents\Questrade-Development-Workshop\NET_Service\SimpleRest\SimpleRest\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Luke\Documents\Questrade-Development-Workshop\NET_Service\SimpleRest\SimpleRest\obj\Debug\SimpleRest.dll
 C:\Users\Luke\Documents\Questrade-Development-Workshop\NET_Service\SimpleRest\SimpleRest\obj\Debug\SimpleRest.pdb
+C:\Users\Luke\Documents\Questrade-Development-Workshop\NET_Service\SimpleRest\SimpleRest\obj\Debug\SimpleRest.csprojResolveAssemblyReference.cache

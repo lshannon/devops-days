@@ -1,8 +1,8 @@
 applications:
-- name: order-service
+- name: dotNet-service
   memory: 1G
   path: SimpleRest
-  host: order-service
+  host: dotNet-service
   buildpack: binary_buildpack
   stack: windows2012R2
 services:
